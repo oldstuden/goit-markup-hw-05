@@ -90,11 +90,12 @@ body {
   position: absolute;
   content: '';
   width: 100%;
-  height: 3px;
+  height: 4px;
   left: 0;
   bottom: 0;
-  border-radius: 3px;
+  border-radius: 2px;
   background-color: var(--activ-focus-color);
+  transform: translateY(1px);
 }
 .adress-link {
   display: block;
@@ -204,8 +205,11 @@ body {
   width: 100%;
   height: 100%;
   background-color: rgba(46, 47, 66, 0.4);
+  transition: visibility var(--transition-function),
+    opacity var(--transition-function);
 }
 .backdrop.is-hidden {
+  visibility: hidden;
   opacity: 0;
   pointer-events: none;
 }
@@ -231,9 +235,11 @@ body {
   fill: var(--title-color);
   transition: fill var(--transition-function);
 }
+.modal-close:focus,
 .modal-close:hover {
   border-color: transparent;
 }
+.modal-close:focus .close-btn,
 .modal-close:hover .close-btn {
   fill: #fff;
 }
@@ -426,7 +432,8 @@ body {
   letter-spacing: 0.04em;
   color: #4d5ae5;
   transition: background-color var(--transition-function),
-    box-shadow var(--transition-function), color var(--transition-function);
+    box-shadow var(--transition-function), color var(--transition-function),
+    border-color var(--transition-function);
   cursor: pointer;
 }
 .buttons-item button:hover,
